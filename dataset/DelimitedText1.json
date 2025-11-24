@@ -1,0 +1,43 @@
+{
+	"name": "DelimitedText1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "source"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "agent_id",
+				"type": "String"
+			},
+			{
+				"name": "agent_name",
+				"type": "String"
+			},
+			{
+				"name": "branch",
+				"type": "String"
+			},
+			{
+				"name": "join_date",
+				"type": "String"
+			},
+			{
+				"name": "status",
+				"type": "String"
+			}
+		]
+	}
+}
