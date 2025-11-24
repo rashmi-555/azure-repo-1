@@ -52,7 +52,7 @@
 					},
 					"activities": [
 						{
-							"name": "Get Metadata1",
+							"name": "read-config",
 							"type": "GetMetadata",
 							"dependsOn": [],
 							"policy": {
@@ -66,11 +66,20 @@
 							"typeProperties": {
 								"dataset": {
 									"referenceName": "DelimitedText1",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"FolderPath": {
+											"value": "@item().raw_folder",
+											"type": "Expression"
+										}
+									}
 								},
-								"fieldList": [],
+								"fieldList": [
+									"childItems"
+								],
 								"storeSettings": {
 									"type": "AzureBlobFSReadSettings",
+									"recursive": true,
 									"enablePartitionDiscovery": false
 								},
 								"formatSettings": {
