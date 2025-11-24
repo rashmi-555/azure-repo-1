@@ -1,0 +1,33 @@
+{
+	"name": "Json1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "raw_config.json",
+				"folderPath": "config",
+				"fileSystem": "main"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"source_folder": {
+					"type": "string"
+				},
+				"file_name": {
+					"type": "string"
+				},
+				"raw_folder": {
+					"type": "string"
+				}
+			}
+		}
+	}
+}
