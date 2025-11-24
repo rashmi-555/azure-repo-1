@@ -47,7 +47,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('src-to-raw-config-lookup').output",
+						"value": "@activity('src-to-raw-config-lookup').output.value",
 						"type": "Expression"
 					},
 					"activities": [
@@ -69,7 +69,7 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"FolderPath": {
-											"value": "@item().raw_folder",
+											"value": "@item().source_folder",
 											"type": "Expression"
 										}
 									}
@@ -112,7 +112,6 @@
 									"storeSettings": {
 										"type": "AzureBlobFSReadSettings",
 										"recursive": true,
-										"wildcardFolderPath": "FolderPath",
 										"wildcardFileName": "*",
 										"enablePartitionDiscovery": false
 									},
@@ -129,7 +128,7 @@
 									"formatSettings": {
 										"type": "DelimitedTextWriteSettings",
 										"quoteAllText": true,
-										"fileExtension": ".txt"
+										"fileExtension": ""
 									}
 								},
 								"enableStaging": false,
@@ -159,7 +158,10 @@
 									"referenceName": "DelimitedText2",
 									"type": "DatasetReference",
 									"parameters": {
-										"FolderPath": " @item().raw_folder"
+										"FolderPath": {
+											"value": "@item().raw_folder",
+											"type": "Expression"
+										}
 									}
 								}
 							]
